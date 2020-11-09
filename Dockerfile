@@ -24,7 +24,7 @@ ENV LIBWEBSOCKETS_VERSION=v2.4.2
 
 COPY run.sh /
 
-RUN apk --no-cache add --virtual buildDeps git cmake build-base openssl-dev c-ares-dev util-linux-dev hiredis-dev postgresql-dev libmongoc-1.0-0 libbson-1.0-0 curl-dev; \
+RUN apk --no-cache add --virtual buildDeps git cmake build-base openssl-dev c-ares-dev util-linux-dev hiredis-dev postgresql-dev curl-dev; \
     chmod +x /run.sh && \
     mkdir -p /var/lib/mosquitto && \
     touch /var/lib/mosquitto/.keep && \
