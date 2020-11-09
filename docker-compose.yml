@@ -24,7 +24,7 @@ services:
                 - DOMAIN=example.local
                 - PORT=8080
                 depends_on:
-                - redis
+                - mongo
                 labels:
                 - "local.example.description=Mosquitto v1.6.9 MQTT server"
 
