@@ -24,7 +24,7 @@ ENV LIBWEBSOCKETS_VERSION=v2.4.2
 
 COPY run.sh /
 
-RUN apk --no-cache add --virtual buildDeps git cmake build-base openssl-dev c-ares-dev util-linux-dev hiredis-dev postgresql-dev curl-dev; \
+RUN apk --no-cache add --virtual buildDeps git cmake build-base openssl-dev c-ares-dev util-linux-dev hiredis-dev postgresql-dev libmongoc-1.0-0-dev libbson-dev curl-dev; \
     chmod +x /run.sh && \
     mkdir -p /var/lib/mosquitto && \
     touch /var/lib/mosquitto/.keep && \
@@ -79,7 +79,7 @@ RUN apk --no-cache add --virtual buildDeps git cmake build-base openssl-dev c-ar
     sed -i "s/BACKEND_LDAP ?= no/BACKEND_LDAP ?= no/" config.mk && \
     sed -i "s/BACKEND_HTTP ?= no/BACKEND_HTTP ?= yes/" config.mk && \
     sed -i "s/BACKEND_JWT ?= no/BACKEND_JWT ?= no/" config.mk && \
-    sed -i "s/BACKEND_MONGO ?= no/BACKEND_MONGO ?= no/" config.mk && \
+    sed -i "s/BACKEND_MONGO ?= no/BACKEND_MONGO ?= yes/" config.mk && \
     sed -i "s/BACKEND_FILES ?= no/BACKEND_FILES ?= no/" config.mk && \
     sed -i "s/BACKEND_MEMCACHED ?= no/BACKEND_MEMCACHED ?= no/" config.mk && \
     sed -i "s/MOSQUITTO_SRC =/MOSQUITTO_SRC = ..\//" config.mk && \
